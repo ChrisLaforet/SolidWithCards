@@ -1,7 +1,7 @@
 ﻿
 namespace SolidWithCards
 {
-	interface IShuffler
+	public interface IShuffler
 	{
 		Card[] Shuffle(Card[] cards);
 	}

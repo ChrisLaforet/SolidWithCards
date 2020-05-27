@@ -1,8 +1,12 @@
 ﻿
 namespace SolidWithCards
 {
-	interface IDealer
+	public interface IDealer
 	{
 		Card Deal();
+
+		void BurnCards();
+
+		int RemainingCardTotal { get; }
 	}
 }

@@ -1,4 +1,7 @@
 ﻿
+using System.Collections.Generic;
+using System.Linq;
+
 namespace SolidWithCards
 {
 	public class Card
@@ -37,6 +40,48 @@ namespace SolidWithCards
 					NINE_SPADES, TEN_SPADES, JACK_SPADES, QUEEN_SPADES,
 					KING_SPADES };
 			}
+		}
+
+		public static Card[] TwoNewPacksOfCards
+		{
+			get
+			{
+				return LoadPacksOfCards(2);
+			}
+		}
+
+		public static Card[] FourNewPacksOfCards
+		{
+			get
+			{
+				return LoadPacksOfCards(4);
+			}
+		}
+
+		public static Card[] SixNewPacksOfCards
+		{
+			get
+			{
+				return LoadPacksOfCards(6);
+			}
+		}
+
+		public static Card[] EightNewPacksOfCards
+		{
+			get
+			{
+				return LoadPacksOfCards(8);
+			}
+		}
+
+		private static Card[] LoadPacksOfCards(int packs)
+		{
+			List<Card> cards = new List<Card>();
+			for (int pack = 0; pack < packs; pack++)
+			{
+				cards.AddRange(NewPackOfCards.ToList());
+			}
+			return cards.ToArray();
 		}
 
 		public static readonly Card ACE_HEARTS = new Card("A", Suit.HEARTS);

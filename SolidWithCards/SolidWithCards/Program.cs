@@ -2,9 +2,9 @@
 
 namespace SolidWithCards
 {
-	class Program
+	public class Program
 	{
-		static void Main(string[] args)
+		static public void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
 		}
