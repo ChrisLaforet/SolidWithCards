@@ -1,5 +1,4 @@
-﻿
-namespace SolidWithCards
+﻿namespace SolidWithCards.Cards
 {
 	public class Suit
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolidWithCards
+namespace SolidWithCards.Cards
 {
 	public class Card
 	{

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolidWithCards.Cards;
 
-namespace SolidWithCards
+namespace SolidWithCards.Shufflers
 {
 	public class CardShuffler : IShuffler
 	{
 		public Card[] Shuffle(Card[] cards)
 		{
+			int decks = cards.Length / 52;
 			Card[] shuffled = cards;
-			for (int times = 0; times < 13; times++)
+			for (int times = 0; times < 13 * decks; times++)
 			{
 				shuffled = OverhandShuffle(shuffled);
 				shuffled = CutCards(shuffled);

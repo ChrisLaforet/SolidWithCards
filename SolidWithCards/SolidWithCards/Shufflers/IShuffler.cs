@@ -1,5 +1,6 @@
-﻿
-namespace SolidWithCards
+﻿using SolidWithCards.Cards;
+
+namespace SolidWithCards.Shufflers
 {
 	public interface IShuffler
 	{

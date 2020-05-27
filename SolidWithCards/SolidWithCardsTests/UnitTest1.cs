@@ -1,6 +1,8 @@
 using System.Linq;
 using NUnit.Framework;
-using SolidWithCards;
+using SolidWithCards.Cards;
+using SolidWithCards.Dealers;
+using SolidWithCards.Shufflers;
 
 namespace SolidWithCardsTests
 {

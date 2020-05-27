@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolidWithCards.Cards;
+using SolidWithCards.Shufflers;
 
-namespace SolidWithCards
+namespace SolidWithCards.Dealers
 {
 	public class Shoe : IDealer
 	{
