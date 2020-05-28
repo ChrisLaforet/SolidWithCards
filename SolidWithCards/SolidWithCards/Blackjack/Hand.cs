@@ -1,7 +1,7 @@
 ﻿
-namespace SolidWithCards
+namespace SolidWithCards.Blackjack
 {
-	class Hand
+	public class Hand
 	{
 	}
 }
