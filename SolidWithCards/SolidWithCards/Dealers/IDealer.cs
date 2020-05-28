@@ -4,7 +4,7 @@ namespace SolidWithCards.Dealers
 {
 	public interface IDealer
 	{
-		Card Deal();
+		ICard Deal();
 
 		void BurnCards();
 

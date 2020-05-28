@@ -40,7 +40,7 @@ namespace SolidWithCards.Dealers
 			}
 		}
 
-		public Card Deal()
+		public ICard Deal()
 		{
 			try
 			{

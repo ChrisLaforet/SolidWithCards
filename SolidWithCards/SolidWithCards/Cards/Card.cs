@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SolidWithCards.Cards
 {
-	public class Card
+	public class Card : ICard
 	{
 		public string Moniker { get; private set; }
 		public Suit Suit { get; private set; }
