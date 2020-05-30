@@ -15,7 +15,7 @@ namespace SolidWithCards.Cards
 			Suit = suit;
 		}
 
-		public static Card[] NewPackOfCards
+		static Card[] NewPackOfCards
 		{
 			get
 			{
