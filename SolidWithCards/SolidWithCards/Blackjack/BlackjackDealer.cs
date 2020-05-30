@@ -13,7 +13,7 @@ namespace SolidWithCards.Blackjack
 			this.cardDealer = cardDealer;
 		}
 
-		public int RemainingCardTotal => throw new NotImplementedException();
+		public int RemainingCardTotal => cardDealer.RemainingCardTotal;
 
 		public void BurnCards()
 		{

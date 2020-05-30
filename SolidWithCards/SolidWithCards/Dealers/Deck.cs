@@ -19,20 +19,7 @@ namespace SolidWithCards.Dealers
 
 		public void BurnCards()
 		{
-			if (canBurn)
-			{
-				Random random = new Random();
-				int max = random.Next((int)(cardStack.Count * 0.1));
-				if (max == 0)
-				{
-					max = (int)(cardStack.Count * 0.1);
-				}
-				for (int count = 0; count < max; count++)
-				{
-					cardStack.Pop();
-				}
-			}
-			else
+			if (!canBurn)
 			{
 				throw new InvalidOperationException("Deck is already in use and can't be burned");
 			}

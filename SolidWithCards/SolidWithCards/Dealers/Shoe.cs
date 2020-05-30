@@ -7,7 +7,7 @@ namespace SolidWithCards.Dealers
 {
 	public class Shoe : IDealer
 	{
-		private const int MAX_CARDS_FOR_BURN = 100;
+		private const float MAX_CARDS_FOR_BURN_PERCENT = 0.25f;
 
 		private readonly Stack<Card> cardStack;
 		private bool canBurn = true;
@@ -23,11 +23,12 @@ namespace SolidWithCards.Dealers
 		{
 			if (canBurn)
 			{
+				int limitCardsForBurn = (int)Math.Floor(MAX_CARDS_FOR_BURN_PERCENT * cardStack.Count);
 				Random random = new Random();
-				int max = random.Next(MAX_CARDS_FOR_BURN);
-				if (max == 0)
+				int max = random.Next(limitCardsForBurn);
+				if (max < limitCardsForBurn /2)
 				{
-					max = MAX_CARDS_FOR_BURN;
+					max = limitCardsForBurn / 2;
 				}
 				for (int count = 0; count < max; count++)
 				{
