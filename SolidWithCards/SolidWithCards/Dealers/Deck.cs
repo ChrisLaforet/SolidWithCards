@@ -8,7 +8,6 @@ namespace SolidWithCards.Dealers
 	public class Deck : IDealer
 	{
 		private readonly Stack<Card> cardStack;
-		private bool canBurn = true;
 
 		public Deck(Card[] cards, IShuffler shuffler)
 		{
@@ -19,17 +18,16 @@ namespace SolidWithCards.Dealers
 
 		public void BurnCards()
 		{
-			if (!canBurn)
-			{
-				throw new InvalidOperationException("Deck is already in use and can't be burned");
-			}
+			//if (!canBurn)
+			//{
+			//	throw new InvalidOperationException("Deck is already in use and can't be burned");
+			//}
 		}
 
 		public ICard Deal()
 		{
 			try
 			{
-				canBurn = false;
 				return cardStack.Pop();
 			}
 			catch (Exception)

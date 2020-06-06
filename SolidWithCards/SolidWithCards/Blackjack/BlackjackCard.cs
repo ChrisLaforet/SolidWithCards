@@ -47,5 +47,10 @@ namespace SolidWithCards.Blackjack
 		public string Moniker => card.Moniker;
 
 		public Suit Suit => card.Suit;
+
+		public override string ToString()
+		{
+			return card.ToString();
+		}
 	}
 }

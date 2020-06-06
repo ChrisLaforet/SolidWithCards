@@ -15,6 +15,11 @@ namespace SolidWithCards.Cards
 			Suit = suit;
 		}
 
+		public override string ToString()
+		{
+			return Moniker + " of " + Suit.Name;
+		}
+
 		static Card[] NewPackOfCards
 		{
 			get
@@ -42,39 +47,7 @@ namespace SolidWithCards.Cards
 			}
 		}
 
-		public static Card[] TwoNewPacksOfCards
-		{
-			get
-			{
-				return LoadPacksOfCards(2);
-			}
-		}
-
-		public static Card[] FourNewPacksOfCards
-		{
-			get
-			{
-				return LoadPacksOfCards(4);
-			}
-		}
-
-		public static Card[] SixNewPacksOfCards
-		{
-			get
-			{
-				return LoadPacksOfCards(6);
-			}
-		}
-
-		public static Card[] EightNewPacksOfCards
-		{
-			get
-			{
-				return LoadPacksOfCards(8);
-			}
-		}
-
-		private static Card[] LoadPacksOfCards(int packs)
+		public static Card[] LoadPacksOfCards(int packs)
 		{
 			List<Card> cards = new List<Card>();
 			for (int pack = 0; pack < packs; pack++)

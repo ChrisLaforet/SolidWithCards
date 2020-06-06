@@ -6,19 +6,19 @@ using SolidWithCards.Shufflers;
 
 namespace SolidWithCardsTests
 {
-	public class Tests
+	public class BaseTests
 	{
 		[Test]
 		public void Validate_AskingForPackOfCards_Returns52Cards()
 		{
-			Card[] pack = Card.NewPackOfCards;
+			Card[] pack = Card.LoadPacksOfCards(1);
 			Assert.AreEqual(52, pack.Length);
 		}
 
 		[Test]
 		public void Validate_NewPackOfCards_Returns13OfEachSuit()
 		{
-			Card[] pack = Card.NewPackOfCards;
+			Card[] pack = Card.LoadPacksOfCards(1);
 			int clubs = pack.AsQueryable().Where((card, index) => card.Suit == Suit.CLUBS).Count();
 			Assert.AreEqual(13, clubs);
 			int diamonds = pack.AsQueryable().Where((card, index) => card.Suit == Suit.DIAMONDS).Count();
@@ -33,7 +33,7 @@ namespace SolidWithCardsTests
 		public void Validate_Shuffle_DoesNotLeaveNulls()
 		{
 			for (int count = 0; count < 23; count++) {
-				Card[] pack = Card.NewPackOfCards;
+				Card[] pack = Card.LoadPacksOfCards(1);
 				IShuffler shuffler = new CardShuffler();
 				Card[] shuffled = shuffler.Shuffle(pack);
 
@@ -44,7 +44,7 @@ namespace SolidWithCardsTests
 		[Test]
 		public void Validate_Shuffle_Randomizes()
 		{
-			Card[] pack = Card.NewPackOfCards;
+			Card[] pack = Card.LoadPacksOfCards(1);
 			IShuffler shuffler = new CardShuffler();
 			Card[] shuffled1 = shuffler.Shuffle(pack);
 			Card[] shuffled2 = shuffler.Shuffle(pack);
@@ -58,7 +58,7 @@ namespace SolidWithCardsTests
 		public void Validate_Deck_Contains_52Cards()
 		{
 			IShuffler shuffler = new CardShuffler();
-			Deck deck = new Deck(Card.NewPackOfCards, shuffler);
+			Deck deck = new Deck(Card.LoadPacksOfCards(1), shuffler);
 			int count = 0;
 			while (deck.Deal() != null)
 			{
@@ -71,10 +71,10 @@ namespace SolidWithCardsTests
 		public void Validate_Deck_CanBurn_And_CanDealACard()
 		{
 			IShuffler shuffler = new CardShuffler();
-			Deck deck = new Deck(Card.NewPackOfCards, shuffler);
+			Deck deck = new Deck(Card.LoadPacksOfCards(1), shuffler);
 			deck.BurnCards();
 			int remainingCardTotal = deck.RemainingCardTotal;
-			Assert.AreNotEqual(52, remainingCardTotal);
+			Assert.AreEqual(52, remainingCardTotal);
 
 			deck.Deal();
 			Assert.AreEqual(remainingCardTotal - 1, deck.RemainingCardTotal);
@@ -84,7 +84,7 @@ namespace SolidWithCardsTests
 		public void Validate_2DeckShoe_Contains_104Cards()
 		{
 			IShuffler shuffler = new CardShuffler();
-			Shoe shoe = new Shoe(Card.TwoNewPacksOfCards, shuffler);
+			Shoe shoe = new Shoe(Card.LoadPacksOfCards(2), shuffler);
 			int count = 0;
 			while (shoe.Deal() != null)
 			{
@@ -97,7 +97,7 @@ namespace SolidWithCardsTests
 		public void Validate_4DeckShoe_Contains_208Cards()
 		{
 			IShuffler shuffler = new CardShuffler();
-			Shoe shoe = new Shoe(Card.FourNewPacksOfCards, shuffler);
+			Shoe shoe = new Shoe(Card.LoadPacksOfCards(4), shuffler);
 			int count = 0;
 			while (shoe.Deal() != null)
 			{
@@ -110,7 +110,7 @@ namespace SolidWithCardsTests
 		public void Validate_6DeckShoe_Contains_312Cards()
 		{
 			IShuffler shuffler = new CardShuffler();
-			Shoe shoe = new Shoe(Card.SixNewPacksOfCards, shuffler);
+			Shoe shoe = new Shoe(Card.LoadPacksOfCards(6), shuffler);
 			int count = 0;
 			while (shoe.Deal() != null)
 			{
@@ -123,7 +123,7 @@ namespace SolidWithCardsTests
 		public void Validate_8DeckShoe_Contains_416Cards()
 		{
 			IShuffler shuffler = new CardShuffler();
-			Shoe shoe = new Shoe(Card.EightNewPacksOfCards, shuffler);
+			Shoe shoe = new Shoe(Card.LoadPacksOfCards(8), shuffler);
 			int count = 0;
 			while (shoe.Deal() != null)
 			{

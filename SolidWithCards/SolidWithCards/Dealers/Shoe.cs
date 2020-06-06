@@ -7,6 +7,7 @@ namespace SolidWithCards.Dealers
 {
 	public class Shoe : IDealer
 	{
+		private const float MIN_CARDS_FOR_BURN_PERCENT = 0.125f;
 		private const float MAX_CARDS_FOR_BURN_PERCENT = 0.25f;
 
 		private readonly Stack<Card> cardStack;
@@ -19,18 +20,20 @@ namespace SolidWithCards.Dealers
 
 		public int RemainingCardTotal => cardStack.Count;
 
+		private int GetBurnSize()
+		{
+			int maxLimit = (int)Math.Floor(MAX_CARDS_FOR_BURN_PERCENT * cardStack.Count);
+			int minLimit = (int)Math.Floor(MIN_CARDS_FOR_BURN_PERCENT * cardStack.Count);
+			Random random = new Random();
+			int size = random.Next(maxLimit - minLimit);
+			return minLimit + size;
+		}
+
 		public void BurnCards()
 		{
 			if (canBurn)
 			{
-				int limitCardsForBurn = (int)Math.Floor(MAX_CARDS_FOR_BURN_PERCENT * cardStack.Count);
-				Random random = new Random();
-				int max = random.Next(limitCardsForBurn);
-				if (max < limitCardsForBurn /2)
-				{
-					max = limitCardsForBurn / 2;
-				}
-				for (int count = 0; count < max; count++)
+				for (int count = 0; count < GetBurnSize(); count++)
 				{
 					cardStack.Pop();
 				}

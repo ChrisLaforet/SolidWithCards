@@ -1,10 +1,9 @@
 ﻿using SolidWithCards.Cards;
 using SolidWithCards.Dealers;
-using System;
 
 namespace SolidWithCards.Blackjack
 {
-	public class BlackjackDealer : IDealer
+	class BlackjackDealer : IDealer
 	{
 		private readonly IDealer cardDealer;
 

@@ -1,9 +1,7 @@
 ﻿using NUnit.Framework;
 using SolidWithCards.Blackjack;
 using SolidWithCards.Cards;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace SolidWithCardsTests
 {
@@ -57,8 +55,8 @@ namespace SolidWithCardsTests
 
 		public class TestCard : ICard
 		{
-			private string moniker;
-			private Suit suit;
+			private readonly string moniker;
+			private readonly Suit suit;
 
 			public string Moniker => moniker;
 			public Suit Suit => suit;
